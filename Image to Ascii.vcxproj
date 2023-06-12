@@ -127,6 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArgumentsUtil.cpp" />
+    <ClInclude Include="BrightnessUtil.h" />
+    <ClCompile Include="BrightnessUtil.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -134,6 +137,7 @@
     <ClCompile Include="PNGDecoder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArgumentsUtil.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Pixel.h" />
