@@ -1,5 +1,4 @@
 #include "ConversionUtil.h"
-#include <iostream>
 
 void cul::convertToAscii(unsigned char* brightness, const unsigned int arraySize, bool useReversedAsciiTable) {
 	short index = 0;

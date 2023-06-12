@@ -1,5 +1,4 @@
 #include "SetupUtil.h"
-#include <iostream>
 
 namespace sul {
 	bool isValidPath(const std::string path) {
