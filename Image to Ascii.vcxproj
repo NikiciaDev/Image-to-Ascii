@@ -127,10 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArgumentsUtil.cpp" />
+    <ClCompile Include="SetupUtil.cpp" />
     <ClInclude Include="BrightnessUtil.h" />
     <ClCompile Include="BrightnessUtil.cpp" />
-    <ClCompile Include="Console.cpp" />
     <ClCompile Include="ConversionUtil.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -138,8 +137,7 @@
     <ClCompile Include="PNGDecoder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArgumentsUtil.h" />
-    <ClInclude Include="Console.h" />
+    <ClInclude Include="SetupUtil.h" />
     <ClInclude Include="ConversionUtil.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Pixel.h" />
