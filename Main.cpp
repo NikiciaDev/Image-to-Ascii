@@ -43,9 +43,10 @@ int main(int argc, char* argv[]) {
 
 		unsigned int pixelsSize = pixels->size();
 		unsigned char* cPixels = new unsigned char[pixelsSize];
-		for (unsigned int i = 0; i < pixels->size(); i++) {
+		for (unsigned int i = 0; i < pixelsSize; i++) {
 			cPixels[i] = bul::calculateBrightness(pixels->at(i), brightnessCalculationAlgorithm);
 		}
+
 		pixels->clear();
 		pixels->shrink_to_fit();
 		delete pixels;
