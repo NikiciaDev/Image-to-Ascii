@@ -7,12 +7,13 @@
 #include "BrightnessUtil.h"
 
 short brightnessCalculationAlgorithm = 0;
+double roundingPercision = 0;
 bool useReversedAsciiTable = false;
 
 int main(int argc, char* argv[]) {
 	std::string pngPath;
 	unsigned int width, height;
-	char ynInput;
+	std::string tempInput;
 
 	while (true) {
 		while (true) {
@@ -29,12 +30,23 @@ int main(int argc, char* argv[]) {
 				continue;
 			}
 			std::cout << "[ITA] Would you like to use a brightness reversed ascii table? (Y/N)\n";
-			std::cin >> ynInput;
-			if (ynInput != 'y' && ynInput != 'Y' && ynInput != 'n' && ynInput != 'N') {
-				std::cout << "[ITA] Please either input \"Y\" or \"N\"!";
+			std::cin >> tempInput;
+			if (tempInput != "y" && tempInput != "Y" && tempInput != "n" && tempInput != "N") {
+				std::cout << "[ITA] Please either input \"Y\" or \"N\"!\n";
 				continue;
 			}
-			useReversedAsciiTable = (ynInput == 'y' || ynInput == 'Y');
+			useReversedAsciiTable = (tempInput == "y" || tempInput == "Y");
+			std::cout << "[ITA] Please specify the rounding percision (0 = no rounding, 0.001 = round to thrid decimal).\n";
+			std::cin >> tempInput;
+
+			char* end = nullptr;
+			roundingPercision = strtod(tempInput.c_str(), &end);
+			bool b = end != tempInput.c_str() && *end == '\0' && roundingPercision != HUGE_VAL;
+			if(!b) {
+				std::wcout << "[ITA] Please enter a valid percision value!\n";
+				continue;
+			}
+
 			break;
 		}
 
@@ -51,7 +63,7 @@ int main(int argc, char* argv[]) {
 		pixels->shrink_to_fit();
 		delete pixels;
 
-		cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable);
+		cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable, roundingPercision);
 		std::cout << "\n";
 
 		for (unsigned int i = 1; i <= pixelsSize; i++) {
