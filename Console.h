@@ -11,6 +11,8 @@ private:
 	HANDLE hConsole;
 
 public:
+	~Console();
+
 	Console(const unsigned int width, const unsigned int height);
 
 	// Activates the console object.

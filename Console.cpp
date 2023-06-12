@@ -1,5 +1,9 @@
 #include "Console.h"
 
+Console::~Console() {
+	delete[] buffer;
+}
+
 Console::Console(const unsigned int width, const unsigned int height) : width(width), height(height), dwBytesWritten(0), positionInBuffer(0) {
 	buffer = new wchar_t[((long long) width) * height];
 	hConsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);

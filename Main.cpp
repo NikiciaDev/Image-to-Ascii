@@ -1,13 +1,17 @@
-#include <windows.h>
+#include <iostream>
+#include <vector>
+#include "Pixel.h"
+#include "PNGDecoder.h"
 #include "Console.h"
 
-int main() {
-	Console console(120, 40);
-	console.setActiveScreen();
+std::string pngPath;
 
-	while (true) {
-		console.pushAndPrint("Hello Word!", {0, 0});
-	}
-	
+int main(int argc, char* argv[]) {
+	if (argc != 2) exit(-1);
+	pngPath = argv[1];
+
+	std::vector<Pixel> pixels;
+	pdr::decode(pngPath.c_str(), pixels);
+
 	return 0;
 }

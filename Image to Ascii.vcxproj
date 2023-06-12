@@ -128,10 +128,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Pixel.cpp" />
+    <ClCompile Include="PNGDecoder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
+    <ClInclude Include="lodepng.h" />
+    <ClInclude Include="Pixel.h" />
+    <ClInclude Include="PNGDecoder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
