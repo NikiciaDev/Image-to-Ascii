@@ -1,7 +1,7 @@
 #include "BrightnessUtil.h"
 
 namespace bul {
-	unsigned short calculateBrightness(Pixel& pixel, short mode) {
+	unsigned char calculateBrightness(const Pixel& pixel, const short mode) {
 		switch (mode) {
 		case 0: // Average.
 			return pixel.red + pixel.green + pixel.blue / 3;

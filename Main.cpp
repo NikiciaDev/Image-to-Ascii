@@ -3,26 +3,39 @@
 #include "ArgumentsUtil.h"
 #include "Pixel.h"
 #include "PNGDecoder.h"
+#include "ConversionUtil.h"
 #include "BrightnessUtil.h"
 #include "Console.h"
 
 Console console(120, 40);
-std::string pngPath = "";
 short brightnessCalculationAlgorithm = 0;
+bool useReversedAsciiTable = false;
 
 int main(int argc, char* argv[]) {
-	aul::parse(argc, argv, pngPath, brightnessCalculationAlgorithm);
+	std::string pngPath;
+	unsigned int width, height;
 
-	std::vector<Pixel> pixels;
-	pdr::decode(pngPath.c_str(), pixels);
+	aul::parse(argc, argv, pngPath, brightnessCalculationAlgorithm, useReversedAsciiTable);
 
-	unsigned short* brightness = new unsigned short[pixels.size()];
+	std::vector<Pixel>* pixels = new std::vector<Pixel>;
+	pdr::decode(pngPath.c_str(), width, height, *pixels);
 
-	for (int i = 0; i < pixels.size(); i++) {
-		brightness[i] = bul::calculateBrightness(pixels[i], brightnessCalculationAlgorithm);
-		std::cout << brightness[i] << "\n";
+	unsigned int pixelsSize = pixels->size();
+	unsigned char* cPixels = new unsigned char[pixelsSize];
+	for (unsigned int i = 0; i < pixels->size(); i++) {
+		cPixels[i] = bul::calculateBrightness(pixels->at(i), brightnessCalculationAlgorithm);
+	}
+	pixels->clear();
+	pixels->shrink_to_fit();
+	delete pixels;
+
+	cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable);
+
+	for (unsigned int i = 0; i < pixelsSize; i++) {
+		std::cout << cPixels[i];
+		if (i % width == 0) std::cout << "\n";
 	}
 
-	delete[] brightness;
+	delete[] cPixels;
 	return 0;
 }

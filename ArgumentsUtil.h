@@ -5,5 +5,5 @@
 namespace aul {
 	bool isValidPath(std::string path);
 
-	void parse(int argc, char* argv[], std::string& pngPath, short& brightnessCalculationAlgorithm);
+	void parse(const int argc, char* argv[], std::string& pngPath, short& brightnessCalculationAlgorithm, bool& useReversedAsciiTable);
 }

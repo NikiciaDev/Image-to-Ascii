@@ -6,5 +6,5 @@
 namespace pdr {
 
 	// Decodes a PNG and puts its pixels in the given vector
-	void decode(const char* filename, std::vector<Pixel>& pixels);
+	void decode(const char* filename, unsigned int& width, unsigned int& height, std::vector<Pixel>& pixels);
 }

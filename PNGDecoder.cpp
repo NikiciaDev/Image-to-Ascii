@@ -1,9 +1,8 @@
 #include "PNGDecoder.h"
 
 namespace pdr {
-	void pdr::decode(const char* filename, std::vector<Pixel>& pixels) {
+	void pdr::decode(const char* filename, unsigned int& width, unsigned int& height, std::vector<Pixel>& pixels) {
 		std::vector<unsigned char> vec;
-		unsigned int width, height;
 		unsigned int error = lodepng::decode(vec, width, height, filename);
 		
 		//COPE

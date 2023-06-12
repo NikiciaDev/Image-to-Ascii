@@ -131,6 +131,7 @@
     <ClInclude Include="BrightnessUtil.h" />
     <ClCompile Include="BrightnessUtil.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="ConversionUtil.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Pixel.cpp" />
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="ArgumentsUtil.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="ConversionUtil.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="PNGDecoder.h" />

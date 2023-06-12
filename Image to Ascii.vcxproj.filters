@@ -48,6 +48,9 @@
     <ClCompile Include="BrightnessUtil.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
+    <ClCompile Include="ConversionUtil.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="BrightnessUtil.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ConversionUtil.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
