@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 				std::cout << "[ITA] Path seems to be invalid!\n";
 				continue;
 			}
-			std::cout << "[ITA] Please input the desired brightness calculation algorithm (0 - 3).\n";
+			std::cout << "[ITA] Please input the desired brightness calculation algorithm (0 - 2).\n";
 			std::cin >> brightnessCalculationAlgorithm;
 			if (brightnessCalculationAlgorithm < 0 || brightnessCalculationAlgorithm > 3) {
 				std::cout << "[ITA] Invalid brightness calculation algorithm!\n";

@@ -12,9 +12,6 @@ namespace bul {
 		case 2: // Perceived luminance.
 			return 0.299 * pixel.red + 0.587 * pixel.green + 0.114 * pixel.blue;
 			break;
-		case 3: // Luminosity.
-			0.299 * pixel.red + 0.587 * pixel.green + 0.114 * pixel.blue;
-			break;
 		}
 		return 0;
 	}
