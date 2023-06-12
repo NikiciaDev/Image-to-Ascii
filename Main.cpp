@@ -52,12 +52,13 @@ int main(int argc, char* argv[]) {
 		delete pixels;
 
 		cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable);
+		std::cout << "\n";
 
-		for (unsigned int i = 0; i < pixelsSize; i++) {
-			std::cout << cPixels[i];
+		for (unsigned int i = 1; i <= pixelsSize; i++) {
+			std::cout << cPixels[i - 1];
 			if (i % width == 0) std::cout << "\n";
 		}
-		std::cout << "\n";
+		std::cout << std::endl;
 
 		delete[] cPixels;
 	}

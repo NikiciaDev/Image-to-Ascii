@@ -8,7 +8,6 @@ void cul::convertToAscii(unsigned char* brightness, const unsigned int arraySize
 	for (unsigned int i = 0; i < arraySize; i++) {
 		percentage = ((short) brightness[i]) / 255.0;
 		index = percentage * (tableSize - 1);
-		std::cout << index << "\n";
 		brightness[i] = (useReversedAsciiTable ? reversedAsciiTable[index] : asciiTable[index]);
 	}
 }
