@@ -14,6 +14,7 @@ short pixelsPerPixel = -1;
 double roundingPercision = 0;
 bool useReversedAsciiTable = false;
 bool copyToClipboard = false;
+bool printToConsole = true;
 
 int main(int argc, char* argv[]) {
 	std::string pngPath;
@@ -21,7 +22,7 @@ int main(int argc, char* argv[]) {
 
 	while (true) {
 		while (true) {
-			if (sul::setup(pngPath, brightnessCalculationAlgorithm, roundingPercision, useReversedAsciiTable, copyToClipboard, pixelsPerPixel)) break;
+			if (sul::setup(pngPath, brightnessCalculationAlgorithm, roundingPercision, useReversedAsciiTable, copyToClipboard, pixelsPerPixel, printToConsole)) break;
 		}
 
 		std::vector<Pixel>* pixels = new std::vector<Pixel>;
@@ -43,13 +44,13 @@ int main(int argc, char* argv[]) {
 		std::string string;
 		for (unsigned int i = 1; i <= pixelsSize; i++) {
 			string += cPixels[i - 1];
-			std::cout << cPixels[i - 1];
+			if (printToConsole) std::cout << cPixels[i - 1];
 			if (i % (width / (pixelsPerPixel == -1 ? 1 : pixelsPerPixel / 2)) == 0) {
-				std::cout << "\n";
+				if(printToConsole) std::cout << "\n";
 				string += "\n";
 			}
 		}
-		copyStringToClipboard(string);
+		if(copyToClipboard) copyStringToClipboard(string);
 		std::cout << std::endl;
 
 		delete[] cPixels;

@@ -10,7 +10,7 @@ namespace sul {
 	}
 
 	bool setup(std::string& pngPath, short& brightnessCalculationAlgorithm,
-		double& roundingPercision, bool& useReversedAsciiTable, bool& copyToClipboard, short& pixelsPerPixel) {
+		double& roundingPercision, bool& useReversedAsciiTable, bool& copyToClipboard, short& pixelsPerPixel, bool& printToConsole) {
 		std::string tempInput;
 		char* end = nullptr;
 
@@ -59,6 +59,14 @@ namespace sul {
 			return false;
 		}
 		copyToClipboard = (tempInput == "y" || tempInput == "Y");
+
+		std::cout << "[ITA] Would you like to print it to the console? (Y/N)\n";
+		std::cin >> tempInput;
+		if (tempInput != "y" && tempInput != "Y" && tempInput != "n" && tempInput != "N") {
+			std::cout << "[ITA] Please either input \"Y\" or \"N\"!\n";
+			return false;
+		}
+		printToConsole = (tempInput == "y" || tempInput == "Y");
 
 		return true;
 	}
