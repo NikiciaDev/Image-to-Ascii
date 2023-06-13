@@ -15,8 +15,8 @@ namespace pdr {
 		if (pixelsPerPixel == -1) return;
 
 		std::vector<Pixel> averagedPixels, neededPixels;
-		const unsigned int pWidth = width / 4;
 		const unsigned short pixelsPerLine = pixelsPerPixel / 2;
+		const unsigned int pWidth = width / pixelsPerLine;
 
 		for (unsigned int i = 0; i < pixels.size(); i++) {
 			if (pixels[i].used) continue;
