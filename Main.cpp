@@ -10,7 +10,7 @@
 void copyStringToClipboard(const std::string& string);
 
 short brightnessCalculationAlgorithm = 0;
-short pixelsPerPixel = 1;
+short pixelsPerPixel = -1;
 double roundingPercision = 0;
 bool useReversedAsciiTable = false;
 bool copyToClipboard = false;
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 		for (unsigned int i = 1; i <= pixelsSize; i++) {
 			string += cPixels[i - 1];
 			std::cout << cPixels[i - 1];
-			if (i % (pixelsPerPixel == 1 ? 1 : width / pixelsPerPixel) == 0) {
+			if (i % (pixelsPerPixel == -1 ? 1 : width / pixelsPerPixel) == 0) {
 				std::cout << "\n";
 				string += "\n";
 			}

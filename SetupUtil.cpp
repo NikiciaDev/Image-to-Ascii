@@ -20,7 +20,7 @@ namespace sul {
 			std::cout << "[ITA] Path seems to be invalid!\n";
 			return false;
 		}
-		std::cout << "[ITA] Please input the desired brightness calculation algorithm (0 - 2).\n";
+		std::cout << "[ITA] Please input the desired brightness calculation algorithm. (0 - 2)\n";
 		std::cin >> brightnessCalculationAlgorithm;
 		if (brightnessCalculationAlgorithm < 0 || brightnessCalculationAlgorithm > 3) {
 			std::cout << "[ITA] Invalid brightness calculation algorithm!\n";
@@ -33,7 +33,7 @@ namespace sul {
 			return false;
 		}
 		useReversedAsciiTable = (tempInput == "y" || tempInput == "Y");
-		std::cout << "[ITA] Please specify the rounding percision (-1 = no rounding, 0.001 = round to thrid decimal).\n";
+		std::cout << "[ITA] Please specify the rounding percision. (-1 = no rounding, 0.001 = round to thrid decimal)\n";
 		std::cin >> tempInput;
 		roundingPercision = strtod(tempInput.c_str(), &end);
 		bool b = end != tempInput.c_str() && *end == '\0' && roundingPercision != HUGE_VAL;
@@ -48,9 +48,9 @@ namespace sul {
 			return false;
 		}
 		copyToClipboard = (tempInput == "y" || tempInput == "Y");
-		std::cout << "[ITA] What should the resolution divisor be?\n";
+		std::cout << "[ITA] What should the resolution divisor be? (-1 = no divisor)\n";
 		std::cin >> pixelsPerPixel;
-		if (pixelsPerPixel < 4 || pixelsPerPixel % 2 != 0) {
+		if (pixelsPerPixel != -1 && (pixelsPerPixel < 4 || pixelsPerPixel % 2 != 0)) {
 			std::cout << "[ITA] Invalid divisor!\n";
 			return false;
 		}
