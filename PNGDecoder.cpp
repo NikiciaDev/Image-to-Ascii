@@ -29,14 +29,14 @@ namespace pdr {
 				}
 			}
 
-			unsigned int averagerRed = 0, averageGreen = 0, averageBlue = 0, averageAlpha = 0;
+			unsigned int averageRed = 0, averageGreen = 0, averageBlue = 0, averageAlpha = 0;
 			for (Pixel p : neededPixels) {
-				averagerRed += p.red;
-				averagerRed += p.green;
-				averagerRed += p.blue;
-				averagerRed += p.alpha;
+				averageRed += p.red;
+				averageGreen += p.green;
+				averageBlue += p.blue;
+				averageAlpha += p.alpha;
 			}
-			averagedPixels.push_back(Pixel(std::round(averagerRed / (float) pixelsPerPixel), std::round(averageGreen / (float) pixelsPerPixel),
+			averagedPixels.push_back(Pixel(std::round(averageRed / (float) pixelsPerPixel), std::round(averageGreen / (float) pixelsPerPixel),
 				std::round(averageBlue / (float) pixelsPerPixel), std::round(averageAlpha / (float) pixelsPerPixel)));
 
 			neededPixels.clear();
