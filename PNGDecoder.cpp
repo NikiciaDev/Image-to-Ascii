@@ -14,23 +14,32 @@ namespace pdr {
 
 		if (pixelsPerPixel == -1) return;
 
-		std::vector<Pixel> averagedPixels;
+		std::vector<Pixel> averagedPixels, neededPixels;
 		const unsigned int pWidth = width / 4;
 		const unsigned short pixelsPerLine = pixelsPerPixel / 2;
 
 		for (unsigned int i = 0; i < pixels.size(); i++) {
-			unsigned int averagerRed = 0, averageGreen = 0, averageBlue = 0, averageAlpha = 0;
 			if (pixels[i].used) continue;
-			for (unsigned short s = 0; s < pixelsPerLine; s++) {
-				averagerRed += pixels[i + s].red + pixels[i + pWidth + s].red;
-				averageGreen += pixels[i + s].green + pixels[i + pWidth + s].green;
-				averageBlue += pixels[i + s].blue + pixels[i + pWidth + s].blue;
-				averageAlpha += pixels[i + s].alpha + pixels[i + pWidth + s].alpha;
-				pixels[i + s].used = true;
-				pixels[i + pWidth + s].used = true;
+
+			for (short s = 0; s < pixelsPerLine; s++) {
+				for (short s2 = 0; s2 < pixelsPerLine; s2++) {
+					if (i + (s * pWidth) + s2 >= pixels.size()) break;
+					neededPixels.push_back(pixels[i + (s * pWidth) + s2]);
+					pixels[i + (s * pWidth) + s2].used = true;
+				}
+			}
+
+			unsigned int averagerRed = 0, averageGreen = 0, averageBlue = 0, averageAlpha = 0;
+			for (Pixel p : neededPixels) {
+				averagerRed += p.red;
+				averagerRed += p.green;
+				averagerRed += p.blue;
+				averagerRed += p.alpha;
 			}
 			averagedPixels.push_back(Pixel(std::round(averagerRed / (float) pixelsPerPixel), std::round(averageGreen / (float) pixelsPerPixel),
 				std::round(averageBlue / (float) pixelsPerPixel), std::round(averageAlpha / (float) pixelsPerPixel)));
+
+			neededPixels.clear();
 		}
 
 		pixels.clear();
