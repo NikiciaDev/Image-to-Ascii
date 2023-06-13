@@ -12,7 +12,7 @@ namespace pdr {
 			pixels.push_back(Pixel(vec[i], vec[i + 1], vec[i + 2], vec[i + 3]));
 		}
 
-		if (pixelsPerPixel == 1) return;
+		if (pixelsPerPixel == -1) return;
 
 		std::vector<Pixel> averagedPixels;
 		const unsigned int pWidth = width / 4;
