@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
 			}
 		}
 		if(copyToClipboard) copyStringToClipboard(string);
-		std::cout << std::endl;
+		std::cout << "Finnished converting!" << std::endl;
 
 		delete[] cPixels;
 	}
