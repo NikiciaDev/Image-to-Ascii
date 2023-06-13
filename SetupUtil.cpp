@@ -37,7 +37,7 @@ namespace sul {
 			return false;
 		}
 
-		std::cout << "[ITA] What should the resolution divisor be? (-1 = no divisor)\n";
+		std::cout << "[ITA] What should the resolution divisor be? Only integer divisions are valid! (-1 = no divisor)\n";
 		std::cin >> pixelsPerPixel;
 		if (pixelsPerPixel != -1 && (pixelsPerPixel < 4 || pixelsPerPixel % 2 != 0)) {
 			std::cout << "[ITA] Invalid divisor!\n";
