@@ -23,9 +23,9 @@ namespace pdr {
 
 			for (short s = 0; s < pixelsPerLine; s++) {
 				for (short s2 = 0; s2 < pixelsPerLine; s2++) {
-					if (i + (s * pWidth) + s2 >= pixels.size()) goto out;
-					neededPixels.push_back(pixels[i + (s * pWidth) + s2]);
-					pixels[i + (s * pWidth) + s2].used = true;
+					if (i + (s * width) + s2 >= pixels.size()) goto out;
+					neededPixels.push_back(pixels[i + (s * width) + s2]);
+					pixels[i + (s * width) + s2].used = true;
 				}
 			}
 
