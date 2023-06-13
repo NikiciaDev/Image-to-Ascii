@@ -10,7 +10,7 @@ namespace sul {
 	}
 
 	bool setup(std::string& pngPath, short& brightnessCalculationAlgorithm,
-		double& roundingPercision, bool& useReversedAsciiTable, bool& copyToClipboard) {
+		double& roundingPercision, bool& useReversedAsciiTable, bool& copyToClipboard, short& pixelsPerPixel) {
 		std::string tempInput;
 		char* end = nullptr;
 
@@ -48,6 +48,12 @@ namespace sul {
 			return false;
 		}
 		copyToClipboard = (tempInput == "y" || tempInput == "Y");
+		std::cout << "[ITA] What should the resolution divisor be?\n";
+		std::cin >> pixelsPerPixel;
+		if (pixelsPerPixel < 4 || pixelsPerPixel % 2 != 0) {
+			std::cout << "[ITA] Invalid divisor!\n";
+			return false;
+		}
 		return true;
 	}
 }

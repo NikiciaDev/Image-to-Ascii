@@ -10,6 +10,7 @@
 void copyStringToClipboard(const std::string& string);
 
 short brightnessCalculationAlgorithm = 0;
+short pixelsPerPixel = 1;
 double roundingPercision = 0;
 bool useReversedAsciiTable = false;
 bool copyToClipboard = false;
@@ -20,11 +21,11 @@ int main(int argc, char* argv[]) {
 
 	while (true) {
 		while (true) {
-			if (sul::setup(pngPath, brightnessCalculationAlgorithm, roundingPercision, useReversedAsciiTable, copyToClipboard)) break;
+			if (sul::setup(pngPath, brightnessCalculationAlgorithm, roundingPercision, useReversedAsciiTable, copyToClipboard, pixelsPerPixel)) break;
 		}
 
 		std::vector<Pixel>* pixels = new std::vector<Pixel>;
-		pdr::decode(pngPath.c_str(), width, height, *pixels);
+		pdr::decode(pngPath.c_str(), width, height, *pixels, pixelsPerPixel);
 
 		unsigned int pixelsSize = pixels->size();
 		unsigned char* cPixels = new unsigned char[pixelsSize];
@@ -43,7 +44,7 @@ int main(int argc, char* argv[]) {
 		for (unsigned int i = 1; i <= pixelsSize; i++) {
 			string += cPixels[i - 1];
 			std::cout << cPixels[i - 1];
-			if (i % width == 0) {
+			if (i % (pixelsPerPixel == 1 ? 1 : width / pixelsPerPixel) == 0) {
 				std::cout << "\n";
 				string += "\n";
 			}
