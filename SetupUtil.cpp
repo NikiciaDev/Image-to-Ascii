@@ -67,6 +67,7 @@ namespace sul {
 			return false;
 		}
 		printToConsole = (tempInput == "y" || tempInput == "Y");
+		std::cout << "\n";
 
 		return true;
 	}

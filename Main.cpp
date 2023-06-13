@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 		delete pixels;
 
 		cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable, roundingPercision);
-		std::cout << "\n";
+		std::cout << "Preparing string...\n";
 
 		std::string string;
 		for (unsigned int i = 1; i <= pixelsSize; i++) {
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
 			}
 		}
 		if(copyToClipboard) copyStringToClipboard(string);
-		std::cout << "Finnished converting!" << std::endl;
+		std::cout << "Finnished!\n" << std::endl;
 
 		delete[] cPixels;
 	}
