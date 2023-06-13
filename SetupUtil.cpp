@@ -8,4 +8,46 @@ namespace sul {
 		file.close();
 		return b;
 	}
+
+	bool setup(std::string& pngPath, short& brightnessCalculationAlgorithm,
+		double& roundingPercision, bool& useReversedAsciiTable, bool& copyToClipboard) {
+		std::string tempInput;
+		char* end = nullptr;
+
+		std::cout << "[ITA] Please input the path to the PNG you wish to convert.\n";
+		std::cin >> pngPath;
+		if (!sul::isValidPath(pngPath)) {
+			std::cout << "[ITA] Path seems to be invalid!\n";
+			return false;
+		}
+		std::cout << "[ITA] Please input the desired brightness calculation algorithm (0 - 2).\n";
+		std::cin >> brightnessCalculationAlgorithm;
+		if (brightnessCalculationAlgorithm < 0 || brightnessCalculationAlgorithm > 3) {
+			std::cout << "[ITA] Invalid brightness calculation algorithm!\n";
+			return false;
+		}
+		std::cout << "[ITA] Would you like to use a brightness reversed ascii table? (Y/N)\n";
+		std::cin >> tempInput;
+		if (tempInput != "y" && tempInput != "Y" && tempInput != "n" && tempInput != "N") {
+			std::cout << "[ITA] Please either input \"Y\" or \"N\"!\n";
+			return false;
+		}
+		useReversedAsciiTable = (tempInput == "y" || tempInput == "Y");
+		std::cout << "[ITA] Please specify the rounding percision (-1 = no rounding, 0.001 = round to thrid decimal).\n";
+		std::cin >> tempInput;
+		roundingPercision = strtod(tempInput.c_str(), &end);
+		bool b = end != tempInput.c_str() && *end == '\0' && roundingPercision != HUGE_VAL;
+		if (!b) {
+			std::wcout << "[ITA] Please enter a valid percision value!\n";
+			return false;
+		}
+		std::cout << "[ITA] Would you like to copy the string to your clipboard? (Y/N)\n";
+		std::cin >> tempInput;
+		if (tempInput != "y" && tempInput != "Y" && tempInput != "n" && tempInput != "N") {
+			std::cout << "[ITA] Please either input \"Y\" or \"N\"!\n";
+			return false;
+		}
+		copyToClipboard = (tempInput == "y" || tempInput == "Y");
+		return true;
+	}
 }

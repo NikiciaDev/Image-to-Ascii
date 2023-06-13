@@ -1,11 +1,11 @@
 #include "ConversionUtil.h"
 
-double cul::round(double value, double percision) {
+double cul::round(const double value, const double percision) {
 	if (percision == -1) return value;
 	return std::round(value / percision) * percision;
 }
 
-void cul::convertToAscii(unsigned char* brightness, const unsigned int arraySize, bool useReversedAsciiTable, double roundingPercision) {
+void cul::convertToAscii(unsigned char* brightness, const unsigned int arraySize, const bool useReversedAsciiTable, const double roundingPercision) {
 	short index = 0;
 	double percentage = 0;
 
