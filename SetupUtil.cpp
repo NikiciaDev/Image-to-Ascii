@@ -49,7 +49,7 @@ namespace sul {
 		if (isNumber(tempInput)) {
 			roundingPercision = std::stold(tempInput);
 		}
-		if(!isNumber(tempInput) || roundingPercision < 0){
+		if(!isNumber(tempInput) || (roundingPercision != -1 && roundingPercision < 0)){
 			std::wcout << "[ITA] Please enter a valid percision value!\n";
 			return false;
 		}
