@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 				continue;
 			}
 			useReversedAsciiTable = (tempInput == "y" || tempInput == "Y");
-			std::cout << "[ITA] Please specify the rounding percision (0 = no rounding, 0.001 = round to thrid decimal).\n";
+			std::cout << "[ITA] Please specify the rounding percision (-1 = no rounding, 0.001 = round to thrid decimal).\n";
 			std::cin >> tempInput;
 
 			char* end = nullptr;
