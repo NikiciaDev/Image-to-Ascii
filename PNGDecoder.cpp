@@ -18,7 +18,7 @@ namespace pdr {
 		const unsigned int pWidth = width / 4;
 		const unsigned short pixelsPerLine = pixelsPerPixel / 2;
 
-		for (unsigned int i = 0; i < pixels.size(); i += pixelsPerLine) {
+		for (unsigned int i = 0; i < pixels.size(); i++) {
 			if (pixels[i].used) continue;
 
 			for (short s = 0; s < pixelsPerLine; s++) {
