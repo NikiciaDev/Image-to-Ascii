@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
 				asciiPNG += "\n";
 			}
 		}
-		if (printToConsole) std::cout << asciiPNG;
+		if (printToConsole) std::cout << "\n" << asciiPNG;
 		if (copyToClipboard) copyStringToClipboard(asciiPNG);
 		std::cout << "\nFinnished!\n" << std::endl;
 
