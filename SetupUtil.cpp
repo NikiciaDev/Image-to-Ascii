@@ -32,7 +32,7 @@ namespace sul {
 		std::cout << "[ITA] Please input the path to the PNG you wish to convert.\n";
 		std::cin >> pngPath;
 		if (!sul::isValidPath(pngPath)) {
-			std::cout << "[ITA] Path seems to be invalid!\n";
+			std::cout << "[ITA] Path seems to be invalid! Spaces are not allowed!\n";
 			return false;
 		}
 
