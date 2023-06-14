@@ -39,19 +39,24 @@ int main(int argc, char* argv[]) {
 		delete pixels;
 
 		cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable, roundingPercision);
-		std::cout << "Preparing string...\n";
+		std::cout << "Preparing ascii: ";
 
-		std::string string;
+		double lastPercentage = -1;
+		std::string asciiPNG;
 		for (unsigned int i = 1; i <= pixelsSize; i++) {
-			string += cPixels[i - 1];
-			if (printToConsole) std::cout << cPixels[i - 1];
+			double percentage = i / (float) pixelsSize;
+			if (lastPercentage == -1 || lastPercentage + 0.025 <= percentage) {
+				std::cout << "|";
+				lastPercentage = percentage;
+			}
+			asciiPNG += cPixels[i - 1];
 			if (i % (width / (pixelsPerPixel == -1 ? 1 : pixelsPerPixel / 2)) == 0) {
-				if(printToConsole) std::cout << "\n";
-				string += "\n";
+				asciiPNG += "\n";
 			}
 		}
-		if(copyToClipboard) copyStringToClipboard(string);
-		std::cout << "Finnished!\n" << std::endl;
+		if (printToConsole) std::cout << asciiPNG;
+		if (copyToClipboard) copyStringToClipboard(asciiPNG);
+		std::cout << "\nFinnished!\n" << std::endl;
 
 		delete[] cPixels;
 	}
