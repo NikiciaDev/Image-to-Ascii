@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 		delete pixels;
 
 		cul::convertToAscii(cPixels, pixelsSize, useReversedAsciiTable, roundingPercision);
-		std::cout << "Preparing ascii: ";
+		std::cout << "Preparing ASCII: ";
 
 		double lastPercentage = -1;
 		std::string asciiPNG;
